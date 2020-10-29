@@ -6,7 +6,7 @@ SET DETEKT_BIN=%ROOT_FOLDER%\detekt-%VERSION%.jar
 if not exist %DETEKT_BIN% (
   ECHO Please wait, first download...
   if not exist %ROOT_FOLDER% MKDIR %ROOT_FOLDER%
-  curl.exe -sL "https://github.com/detekt/detekt/releases/download/v%VERSION%/detekt-cli-%VERSION%-all.jar" -o "%DETEKT_BIN%"
+  curl.exe --insecure -sL "https://github.com/detekt/detekt/releases/download/v%VERSION%/detekt-cli-%VERSION%-all.jar" -o "%DETEKT_BIN%"
 )
 
 java -jar %DETEKT_BIN% --config .github/workflows/assets/detekt.yml

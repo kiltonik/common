@@ -43,7 +43,7 @@ class NumberFragment : Fragment() {
 
         view.findViewById<TextView>(R.id.big_number).apply {
             text = number.toString()
-            textSize = BIG_TEXT
+            textSize = view.context.resources.getDimension(R.dimen.big_text_size)
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M)
                 setTextColor(
                     view.context.resources.getColor(

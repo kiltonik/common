@@ -1,16 +1,18 @@
 package com.kiltonik.hw
 
-class NumberRepository private constructor() {
+object NumberRepository  {
 
-    private val numberList = mutableListOf<Int>()
+    private val numberList = mutableListOf(1)
 
-    fun newItem() = numberList.add(numberList.size)
+    fun newItem() : Int = numberList.size.apply { numberList.add(this + 1) }
 
     fun list() = numberList
 
     fun number(index: Int) = numberList[index]
 
-    companion object {
-        val instance by lazy { NumberRepository() }
+    fun setItems(data: Any?) {
+        data.let {
+            if(data is Int && data != numberList.size) for (i in 2..data) numberList.add(i)
+        }
     }
 }

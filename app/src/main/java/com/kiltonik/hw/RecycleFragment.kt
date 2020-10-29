@@ -28,7 +28,7 @@ class RecycleFragment : Fragment() {
 
     private var listener: FragmentListener? = null
 
-    private val repository = NumberRepository.instance
+    private val repository = NumberRepository
 
     private val recycleClickListener: (Int) -> Unit =
         { number -> listener?.onNumberClicked(number) }
@@ -65,8 +65,8 @@ class RecycleFragment : Fragment() {
         }
 
         view.findViewById<Button>(R.id.add_item).setOnClickListener {
-            repository.newItem()
-            adapter.notifyDataSetChanged()
+            if(repository.list().size != 100)
+                adapter.notifyItemInserted(repository.newItem())
         }
     }
 }

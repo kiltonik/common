@@ -4,7 +4,10 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
 
-        android:padding="15dp"
+        android:minHeight="@dimen/min_size"
+        android:minWidth="@dimen/min_size"
+
+        android:padding="@dimen/parent_padding"
         android:gravity="center">
 
     <TextView android:id="@+id/big_number"
@@ -12,5 +15,5 @@
             android:layout_height="wrap_content"
 
             android:gravity="center"
-            android:textSize="48sp"/>
+            android:textSize="@dimen/medium_text_size"/>
 </LinearLayout>
